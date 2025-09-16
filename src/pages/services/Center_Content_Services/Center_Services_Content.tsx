@@ -3,7 +3,7 @@ import  AmazomMockup from "../../../images/mockup.png";
 
 import Walmart from "../../../images/img/Walmart.png";
 import Shopify from "../../../images/img/Shopify.png";
-import Ebay from "../../../images/img/Ebay.png";
+import Ebay from "../../../images/img/ebay.png";
 import AmazonWarehouse  from "../../../images/close-up-warehouse-view.jpg"
 import { Link } from 'react-router-dom';
 
