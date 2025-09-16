@@ -5,7 +5,7 @@ import {
 
 import Amazon from "../images/img/amazon.png";
 import Shopify from "../images/img/Shopify.png";
-import Ebay from "../images/img/Ebay.png";
+import Ebay from "../images/img/ebay.png";
 import Walmart from "../images/img/Walmart.png";
 import TikTok from "../images/img/TikTok.png";
 const services = [
