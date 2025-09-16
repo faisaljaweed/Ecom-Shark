@@ -31,12 +31,12 @@ export default function GooglePPCService() {
 
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-red-500 to-red-600">
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-[#a3e635] to-[#a3e635]">
               <Search className="h-16 w-16 text-white" />
             </div>
           </div>
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">
-            Google PPC Campaigns
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white bg-clip-text text-transparent">
+            Google PPC <span className="text-[#a3e635]">Ad Campaigns</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Get instant traffic and high-quality leads through data-driven Google Ads campaigns.
@@ -45,10 +45,10 @@ export default function GooglePPCService() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {features.map((f, i) => (
-            <div key={i} className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-red-500 transition">
+            <div key={i} className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-[#a3e635] transition">
               <div className="flex items-center mb-4">
-                <div className="p-2 rounded-lg bg-red-500/20 mr-4">
-                  <f.icon className="h-6 w-6 text-red-400" />
+                <div className="p-2 rounded-lg bg-blue-500/20 mr-4">
+                  <f.icon className="h-6 w-6 text-[#a3e635]" />
                 </div>
                 <h3 className="text-xl font-semibold">{f.title}</h3>
               </div>

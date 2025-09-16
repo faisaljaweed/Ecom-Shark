@@ -70,15 +70,15 @@ export default function Footer() {
 
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-300">
-                <Phone className="h-4 w-4 text-coral" />
+                <Phone className="h-4 w-4 text-[#a3e635]" />
                 <span className="text-sm">+1 (909) 7435903</span>
               </div>
               <div className="flex items-center gap-3 text-gray-300">
-                <Mail className="h-4 w-4 text-coral" />
+                <Mail className="h-4 w-4 text-[#a3e635]" />
                 <span className="text-sm">ecomsharks@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-gray-300">
-                <MapPin className="h-4 w-4 text-coral" />
+                <MapPin className="h-4 w-4 text-[#a3e635]" />
                 <span className="text-sm">
                   ECOMMSHARKS LLC, MUHAMMAD TAQI NAVEED SOLE MBR APT A-001- B 3549 IOWA AVE RIVERSIDE, CA 92507
                 </span>
@@ -94,7 +94,7 @@ export default function Footer() {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-gray-300 hover:text-coral transition-colors duration-200 text-sm"
+                    className="text-gray-300 hover:text-[#a3e635] transition-colors duration-200 text-sm"
                   >
                     {link.name}
                   </Link>
@@ -111,7 +111,7 @@ export default function Footer() {
                 <li key={service.path}>
                   <Link
                     to={service.path}
-                    className="text-gray-300 hover:text-coral transition-colors duration-200 text-sm"
+                    className="text-gray-300 hover:text-[#a3e635] transition-colors duration-200 text-sm"
                   >
                     {service.name}
                   </Link>
@@ -128,7 +128,7 @@ export default function Footer() {
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className="text-gray-300 hover:text-coral transition-colors duration-200 text-sm"
+                    className="text-gray-300 hover:text-[#a3e635] transition-colors duration-200 text-sm"
                   >
                     {item.name}
                   </Link>
@@ -148,7 +148,7 @@ export default function Footer() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
-                    className="p-2 bg-white/10 rounded-lg hover:bg-coral/20 hover:text-coral transition-all duration-200"
+                    className="p-2 bg-white/10 rounded-lg hover:bg-lime-400/20 hover:text-[#a3e635] transition-all duration-200"
                     aria-label={`Follow us on ${social.name}`}
                   >
                     <IconComponent className="h-5 w-5" />

@@ -50,12 +50,12 @@ export default function EtsyService() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-purple-500 to-purple-600">
+            <div className="p-4 rounded-2xl bg-gradient-to-r from-[#a3e635] to-[#a3e635]">
               <Package className="h-16 w-16 text-white" />
             </div>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">
-            Etsy Shop Automation
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white bg-clip-text text-transparent">
+            Etsy Shop <span className='text-[#a3e635]'>Automation</span> 
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Empower your Etsy store with smart automation for SEO, order management, and customer engagement. 
@@ -68,11 +68,11 @@ export default function EtsyService() {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
+              className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-[#a3e635] transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
             >
               <div className="flex items-center mb-4">
-                <div className="p-2 rounded-lg bg-purple-500/20 mr-4">
-                  <feature.icon className="h-6 w-6 text-purple-400" />
+                <div className="p-2 rounded-lg bg-blue-500/20 mr-4">
+                  <feature.icon className="h-6 w-6 text-[#a3e635]" />
                 </div>
                 <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
               </div>

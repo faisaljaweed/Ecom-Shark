@@ -43,16 +43,43 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (validateForm()) {
-      console.log("Contact form submitted:", formData);
-      alert("Thank you for your message! We'll get back to you soon.");
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (validateForm()) {
+  //     console.log("Contact form submitted:", formData);
+  //     alert("Thank you for your message! We'll get back to you soon.");
+  //     setFormData({ name: "", email: "", subject: "", message: "" });
+  //     setErrors({});
+  //   }
+  // };
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (validateForm()) {
+    try {
+      await fetch(
+        "https://script.google.com/macros/s/AKfycby34aWU072qiFI8iw3QEVPjZa_xrMElWWduWiXnuFzDZ4MURpmpZKgINe5lP00BzIyt/exec",
+        {
+          method: "POST",
+          mode: "no-cors", // 👈 yaha add karo
+          body: JSON.stringify(formData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      alert("Thank you! Your response has been recorded.");
       setFormData({ name: "", email: "", subject: "", message: "" });
       setErrors({});
+    } catch (error) {
+      alert("Error submitting the form. Please try again later.");
+      console.error(error);
     }
-  };
+  }
+};
 
+  
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
