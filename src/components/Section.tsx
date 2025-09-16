@@ -1,11 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
-  FaAmazon,
-  FaShopify,
-  FaTiktok,
-  FaEbay,
-  FaEtsy,
   FaFacebook,
   FaInstagram,
   FaLinkedin,
@@ -13,11 +8,18 @@ import {
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+import amazon from "../images/img/amazon.png"; 
+import shopify from "../images/img/Shopify.png";
+import tiktok from "../images/img/tiktok.png";
+import walmart from "../images/img/Walmart.png";
+import ebay from"../images/img/ebay.png";
+import etsy from "../images/img/etsy.png"
+
 const services = [
   {
     id: 1,
-    icon: <FaAmazon size={40} className="text-gray-800" />,
-    title: "Amazon Wholesale FBA/FBM",
+    icon:  <img src={amazon} alt="Amazon" className="w-12 h-12 object-contain" />,
+    title: "Amazon Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
     tag: "Account setup, sourcing, tracking",
@@ -25,8 +27,8 @@ const services = [
   },
   {
     id: 2,
-    icon: <FaShopify size={40} className="text-green-600" />,
-    title: "Shopify Dropshipping",
+    icon:  <img src={shopify} alt="Amazon" className="w-12 h-12 object-contain" />,
+    title: "Shopify Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
     tag: "Store setup, marketing",
@@ -34,8 +36,8 @@ const services = [
   },
   {
     id: 3,
-    icon: <FaTiktok size={40} className="text-gray-800" />,
-    title: "TikTok Shop",
+    icon:  <img src={tiktok} alt="Amazon" className="w-12 h-12 object-contain" />,
+    title: "TikTok Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
     tag: "Store setup, TikTok ads",
@@ -43,8 +45,8 @@ const services = [
   },
   {
     id: 4,
-    icon: <FaAmazon size={40} className="text-blue-600" />,
-    title: "Walmart Store",
+    icon:  <img src={walmart} alt="Amazon" className="w-12 h-12 object-contain" />,
+    title: "Walmart Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
     tag: "Walmart setup, listing",
@@ -52,8 +54,8 @@ const services = [
   },
   {
     id: 5,
-    icon: <FaEbay size={40} className="text-red-500" />,
-    title: "eBay Store",
+    icon:  <img src={ebay} alt="Amazon" className="w-12 h-12 object-contain" />,
+    title: "eBay Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
     tag: "eBay setup, listing",
@@ -61,8 +63,8 @@ const services = [
   },
   {
     id: 6,
-    icon: <FaEtsy size={40} className="text-orange-500" />,
-    title: "Etsy Shop",
+    icon:  <img src={etsy} alt="Amazon" className="w-12 h-12 object-contain" />,
+    title: "Etsy Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
     tag: "Etsy setup, marketing",

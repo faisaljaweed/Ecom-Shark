@@ -18,6 +18,12 @@ import EbayService from "@/pages/services/EbaySetup";
 import WalmartService from "@/pages/services/Walmart";
 import ShopifyService from "@/pages/services/ShopifySetup";
 import TiktokShopService from "@/pages/services/TiktokShop";
+import EtsyService from "@/pages/services/EtsyService";
+import InfluencerService from "@/pages/services/InfluencerService";
+import GooglePPCService from "@/pages/services/GooglePPCService";
+import AdCampaignService from "@/pages/services/AdCampaignService";
+import MetaAdsService from "@/pages/services/MetaAdsService";
+import SocialMediaService from "@/pages/services/SocialMediaService";
 
 export default function AppRoutes() {
   return (
@@ -44,6 +50,12 @@ export default function AppRoutes() {
       <Route path="/service/walmart" element={<WalmartService />} />
       <Route path="/service/shopify" element={<ShopifyService />} />
       <Route path="/service/tiktokshop" element={<TiktokShopService />} />
+      <Route path="/service/etsy" element={<EtsyService/>}/>
+      <Route path="/service/influencer" element={<InfluencerService/>} />
+      <Route path="/service/googleppc" element={<GooglePPCService/>} />
+      <Route path="/service/adcampaign" element={<AdCampaignService/>} />
+      <Route path="/service/metaads" element={<MetaAdsService/>} />
+      <Route path="/service/socialmedia" element={<SocialMediaService/>} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/privacy" element={<Privacy />} />

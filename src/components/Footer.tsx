@@ -11,7 +11,8 @@ import {
   MapPin,
 } from "lucide-react";
 import Logo from "./Logo";
-
+import Stripe from '../images/Stripe.webp';
+import Shopify from "../images/shopify.webp";
 const quickLinks = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
@@ -33,7 +34,6 @@ const services = [
 const legal = [
   { name: "Privacy Policy", path: "/privacy" },
   { name: "Terms & Conditions", path: "/terms" },
-  // { name: "Cookie Policy", path: "/cookies" },
 ];
 
 const socialLinks = [
@@ -71,16 +71,16 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-gray-300">
                 <Phone className="h-4 w-4 text-coral" />
-                <span className="text-sm">+1 (555) SHARKS-1</span>
+                <span className="text-sm">+1 (909) 7435903</span>
               </div>
               <div className="flex items-center gap-3 text-gray-300">
                 <Mail className="h-4 w-4 text-coral" />
-                <span className="text-sm">scale@ecomsharks.com</span>
+                <span className="text-sm">ecomsharks@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-gray-300">
                 <MapPin className="h-4 w-4 text-coral" />
                 <span className="text-sm">
-                  123 Growth Ave, Scale District, NY 10001
+                  ECOMMSHARKS LLC, MUHAMMAD TAQI NAVEED SOLE MBR APT A-001- B 3549 IOWA AVE RIVERSIDE, CA 92507
                 </span>
               </div>
             </div>
@@ -156,6 +156,15 @@ export default function Footer() {
                 );
               })}
             </div>
+          </div>
+        </div>
+        {/* Stripe Payment */}
+        <div className="flex flex-col gap-4 sm:flex-row items-center justify-between pt-6">
+          <div className="w-100 sm:w-40 md:w-[40%]">
+            <img alt="Shopify" src={Shopify} className="w-full h-auto object-contain" />
+          </div>
+          <div className="w-100 sm:w-40 md:w-[40%]">
+            <img alt="Stripe" src={Stripe} className="w-full h-auto object-contain" />
           </div>
         </div>
 

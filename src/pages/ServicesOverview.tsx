@@ -1,85 +1,105 @@
 import { Link } from "react-router-dom";
 import {
-  ShoppingCart,
-  Store,
-  Smartphone,
-  Package,
-  TrendingUp,
   ArrowRight,
 } from "lucide-react";
 
+import Amazon from "../images/img/amazon.png";
+import Shopify from "../images/img/Shopify.png";
+import Ebay from "../images/img/Ebay.png";
+import Walmart from "../images/img/Walmart.png";
+import TikTok from "../images/img/TikTok.png";
 const services = [
   {
-    id: "amazon",
-    name: "Amazon",
-    icon: Package,
-    description:
-      "Comprehensive automation for product listing, inventory management, and order processing on Amazon marketplace.",
-    features: [
-      "Product Listing Automation",
-      "Inventory Sync",
-      "Order Management",
-      "Price Optimization",
-    ],
-    color: "from-orange-500 to-orange-600",
+    id: 'amazon',
+    name: 'Amazon',
+    icon: Amazon,
+    description: 'Comprehensive automation for product listing, inventory management, and order processing on Amazon marketplace.',
+    features: ['Product Listing Automation', 'Inventory Sync', 'Order Management', 'Price Optimization'],
+    color: 'from-orange-500 to-orange-600'
   },
   {
-    id: "ebay",
-    name: "eBay",
-    icon: ShoppingCart,
-    description:
-      "Streamline your eBay operations with automated listing creation, bidding management, and sales tracking.",
-    features: [
-      "Automated Listings",
-      "Bid Management",
-      "Sales Analytics",
-      "Cross-Platform Sync",
-    ],
-    color: "from-blue-500 to-blue-600",
+    id: 'ebay',
+    name: 'eBay',
+    icon: Ebay,
+    description: 'Streamline your eBay operations with automated listing creation, bidding management, and sales tracking.',
+    features: ['Automated Listings', 'Bid Management', 'Sales Analytics', 'Cross-Platform Sync'],
+    color: 'from-blue-500 to-blue-600'
   },
   {
-    id: "walmart",
-    name: "Walmart",
-    icon: Store,
-    description:
-      "Scale your Walmart marketplace presence with intelligent automation for inventory and order fulfillment.",
-    features: [
-      "Bulk Product Upload",
-      "Real-time Inventory",
-      "Order Processing",
-      "Performance Analytics",
-    ],
-    color: "from-blue-600 to-blue-700",
+    id: 'walmart',
+    name: 'Walmart',
+    icon: Walmart,
+    description: 'Scale your Walmart marketplace presence with intelligent automation for inventory and order fulfillment.',
+    features: ['Bulk Product Upload', 'Real-time Inventory', 'Order Processing', 'Performance Analytics'],
+    color: 'from-blue-600 to-blue-700'
   },
   {
-    id: "shopify",
-    name: "Shopify",
-    icon: TrendingUp,
-    description:
-      "Complete e-commerce automation solution for your Shopify store with advanced marketing tools.",
-    features: [
-      "Store Management",
-      "Marketing Automation",
-      "Customer Insights",
-      "Sales Optimization",
-    ],
-    color: "from-green-500 to-green-600",
+    id: 'shopify',
+    name: 'Shopify',
+    icon: Shopify,
+    description: 'Complete e-commerce automation solution for your Shopify store with advanced marketing tools.',
+    features: ['Store Management', 'Marketing Automation', 'Customer Insights', 'Sales Optimization'],
+    color: 'from-green-500 to-green-600'
   },
   {
-    id: "tiktokshop",
-    name: "TikTok Shop",
-    icon: Smartphone,
-    description:
-      "Leverage the power of social commerce with automated TikTok Shop management and viral marketing.",
-    features: [
-      "Social Commerce",
-      "Content Automation",
-      "Trend Analysis",
-      "Viral Marketing",
-    ],
-    color: "from-pink-500 to-pink-600",
+    id: 'tiktokshop',
+    name: 'TikTok Shop',
+    icon: TikTok,
+    description: 'Leverage the power of social commerce with automated TikTok Shop management and viral marketing.',
+    features: ['Social Commerce', 'Content Automation', 'Trend Analysis', 'Viral Marketing'],
+    color: 'from-pink-500 to-pink-600'
   },
+  // 🔥 New Services
+  {
+    id: 'etsy',
+    name: 'Etsy',
+    icon: Shopify,
+    description: 'Boost your Etsy shop with tailored automation and marketing strategies for handmade and creative products.',
+    features: ['SEO Optimization', 'Custom Order Handling', 'Sales Insights', 'Customer Engagement'],
+    color: 'from-purple-500 to-purple-600'
+  },
+  {
+    id: 'influencer',
+    name: 'Influencer Marketing',
+    icon: TikTok,
+    description: 'Grow your brand reach by collaborating with the right influencers across multiple platforms.',
+    features: ['Influencer Discovery', 'Campaign Management', 'Engagement Tracking', 'ROI Measurement'],
+    color: 'from-yellow-500 to-yellow-600'
+  },
+  {
+    id: 'googleppc',
+    name: 'Google PPC',
+    icon: Walmart,
+    description: 'Maximize visibility and drive conversions with targeted Google Ads and pay-per-click campaigns.',
+    features: ['Keyword Research', 'Ad Optimization', 'Conversion Tracking', 'Budget Management'],
+    color: 'from-red-500 to-red-600'
+  },
+  {
+    id: 'adcampaign',
+    name: 'Ad Campaign',
+    icon: Ebay,
+    description: 'Plan and execute high-performing ad campaigns across different platforms for maximum impact.',
+    features: ['Creative Design', 'Audience Targeting', 'Performance Reports', 'A/B Testing'],
+    color: 'from-teal-500 to-teal-600'
+  },
+  {
+    id: 'metaads',
+    name: 'Meta Ad Campaign',
+    icon: Amazon,
+    description: 'Run powerful ad campaigns on Facebook and Instagram with advanced targeting and analytics.',
+    features: ['Precise Audience Targeting', 'Ad Creative Optimization', 'Budget Control', 'Performance Analytics'],
+    color: 'from-blue-700 to-indigo-600'
+  },
+  {
+    id: 'socialmedia',
+    name: 'Social Media Handling',
+    icon: Shopify,
+    description: 'Build and maintain your brand’s social presence with complete social media management services.',
+    features: ['Content Scheduling', 'Community Management', 'Analytics Reporting', 'Brand Growth'],
+    color: 'from-cyan-500 to-cyan-600'
+  }
 ];
+
 
 export default function ServicesOverview() {
   return (
@@ -109,9 +129,10 @@ export default function ServicesOverview() {
                 {/* Icon and Title */}
                 <div className="flex items-center mb-6">
                   <div
-                    className={`p-3 rounded-xl bg-gradient-to-r ${service.color} mr-4 group-hover:scale-110 transition-transform duration-300`}
+                    className={`p-3 rounded-xl bg-gradient-to-r  mr-4 group-hover:scale-110 transition-transform duration-300`}
                   >
-                    <service.icon className="h-8 w-8 text-white" />
+                   
+                    <img src={service.icon} alt={service.name} className="h-14 w-14 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-white group-hover:text-lime-400 transition-colors duration-300">
                     {service.name}

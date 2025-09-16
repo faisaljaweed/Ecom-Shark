@@ -251,22 +251,7 @@ export const TestimonialSlider: React.FC = () => {
           {/* Navigation Buttons */}
           {maxIndex > 0 && (
             <div className="hidden md:block">
-              {/* <Button
-                variant="outline"
-                size="icon"
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm border-testimonial-border hover:bg-background"
-                onClick={handlePrevious}
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </Button>
-              <Button
-                variant="outline"
-                size="icon"
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm border-testimonial-border hover:bg-background"
-                onClick={handleNext}
-              >
-                <ChevronRight className="w-5 h-5" />
-              </Button> */}
+             
             </div>
           )}
         </div>
@@ -293,24 +278,7 @@ export const TestimonialSlider: React.FC = () => {
         {/* Mobile Navigation */}
         {maxIndex > 0 && (
           <div className="flex justify-center gap-4 mt-8 md:hidden">
-            {/* <Button
-              variant="outline"
-              size="sm"
-              onClick={handlePrevious}
-              className="flex items-center gap-2"
-            >
-              <ChevronLeft className="w-4 h-4" />
-              Previous
-            </Button>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={handleNext}
-              className="flex items-center gap-2"
-            >
-              Next
-              <ChevronRight className="w-4 h-4" />
-            </Button> */}
+           
           </div>
         )}
       </div>

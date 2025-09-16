@@ -1,191 +1,10 @@
-// import { motion } from 'framer-motion';
-// import { Helmet } from 'react-helmet-async';
-// import { useForm } from 'react-hook-form';
-// import { zodResolver } from '@hookform/resolvers/zod';
-// import { z } from 'zod';
-// import { Mail, Phone, MapPin, Send } from 'lucide-react';
-
-// const contactSchema = z.object({
-//   name: z.string().min(2, 'Name must be at least 2 characters'),
-//   email: z.string().email('Please enter a valid email address'),
-//   subject: z.string().min(5, 'Subject must be at least 5 characters'),
-//   message: z.string().min(10, 'Message must be at least 10 characters'),
-// });
-
-// type ContactFormData = z.infer<typeof contactSchema>;
-
-// export default function Contact() {
-//   const {
-//     register,
-//     handleSubmit,
-//     formState: { errors },
-//     reset
-//   } = useForm<ContactFormData>({
-//     resolver: zodResolver(contactSchema)
-//   });
-
-//   const onSubmit = (data: ContactFormData) => {
-//     console.log('Contact form submitted:', data);
-//     // Handle form submission here
-//     alert('Thank you for your message! We\'ll get back to you soon.');
-//     reset();
-//   };
-
-//   return (
-//     <>
-//       <Helmet>
-//         <title>Contact Us - EcomSharks</title>
-//         <meta name="description" content="Get in touch with EcomSharks. We're here to help with any questions or concerns." />
-//       </Helmet>
-
-//       <div className="min-h-screen bg-gradient-to-br from-sand to-white">
-//         <div className="container mx-auto px-4 py-20">
-//           <motion.div
-//             initial={{ opacity: 0, y: 20 }}
-//             animate={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8 }}
-//             className="text-center mb-16"
-//           >
-//             <Mail className="h-16 w-16 text-shark-teal mx-auto mb-6" />
-//             <h1 className="text-5xl font-bold mb-6">Contact <span className="shark-gradient-text">Us</span></h1>
-//             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-//               Ready to scale your ecommerce brand? Let's discuss how we can help you achieve explosive growth with precision.
-//             </p>
-//           </motion.div>
-
-//           <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-//             {/* Contact Info */}
-//             <motion.div
-//               initial={{ opacity: 0, x: -20 }}
-//               animate={{ opacity: 1, x: 0 }}
-//               transition={{ duration: 0.8, delay: 0.2 }}
-//               className="space-y-8"
-//             >
-//               <h2 className="text-3xl font-semibold mb-8">Get in Touch</h2>
-
-//               {[
-//                 {
-//                   icon: <Phone className="h-6 w-6" />,
-//                   title: "Phone",
-//                   content: "+1 (555) SHARKS-1"
-//                 },
-//                 {
-//                   icon: <Mail className="h-6 w-6" />,
-//                   title: "Email",
-//                   content: "scale@ecomsharks.com"
-//                 },
-//                 {
-//                   icon: <MapPin className="h-6 w-6" />,
-//                   title: "Address",
-//                   content: "123 Growth Ave, Scale District, NY 10001"
-//                 }
-//               ].map((item, index) => (
-//                 <div key={index} className="flex items-start gap-4 p-6 rounded-lg bg-white/80 backdrop-blur-sm border border-gray-200/50">
-//                   <div className="text-shark-teal mt-1">{item.icon}</div>
-//                   <div>
-//                     <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
-//                     <p className="text-muted-foreground">{item.content}</p>
-//                   </div>
-//                 </div>
-//               ))}
-//             </motion.div>
-
-//             {/* Contact Form */}
-//             <motion.div
-//               initial={{ opacity: 0, x: 20 }}
-//               animate={{ opacity: 1, x: 0 }}
-//               transition={{ duration: 0.8, delay: 0.4 }}
-//               className="bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-8"
-//             >
-//               <h2 className="text-3xl font-semibold mb-8">Ready to Scale?</h2>
-
-//               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-//                 <div>
-//                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-//                     Name *
-//                   </label>
-//                   <input
-//                     {...register('name')}
-//                     type="text"
-//                     id="name"
-//                     className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-//                     placeholder="Your name"
-//                   />
-//                   {errors.name && (
-//                     <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>
-//                   )}
-//                 </div>
-
-//                 <div>
-//                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-//                     Email *
-//                   </label>
-//                   <input
-//                     {...register('email')}
-//                     type="email"
-//                     id="email"
-//                     className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-//                     placeholder="your@company.com"
-//                   />
-//                   {errors.email && (
-//                     <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>
-//                   )}
-//                 </div>
-
-//                 <div>
-//                   <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-//                     Subject *
-//                   </label>
-//                   <input
-//                     {...register('subject')}
-//                     type="text"
-//                     id="subject"
-//                     className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-//                     placeholder="How can we help scale your brand?"
-//                   />
-//                   {errors.subject && (
-//                     <p className="mt-1 text-sm text-destructive">{errors.subject.message}</p>
-//                   )}
-//                 </div>
-
-//                 <div>
-//                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-//                     Message *
-//                   </label>
-//                   <textarea
-//                     {...register('message')}
-//                     id="message"
-//                     rows={5}
-//                     className="w-full px-4 py-3 rounded-lg border border-border bg-background/50 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
-//                     placeholder="Tell us about your brand and growth goals..."
-//                   />
-//                   {errors.message && (
-//                     <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>
-//                   )}
-//                 </div>
-
-//                 <motion.button
-//                   whileHover={{ scale: 1.02 }}
-//                   whileTap={{ scale: 0.98 }}
-//                   type="submit"
-//                   className="w-full flex items-center justify-center gap-2 px-6 py-4 shark-gradient text-white rounded-lg font-semibold hover:opacity-90 transition-all duration-300 shadow-lg"
-//                 >
-//                   <Send className="h-5 w-5" />
-//                   Let's Scale Together
-//                 </motion.button>
-//               </form>
-//             </motion.div>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
 import React from "react";
 import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-
+import US from "../images/office/US.jpg";
+import England from  "../images/office/England.webp";
+import California from "../images/office/California.jpg";
+import UAE from "../images/office/UAE.webp";
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -427,6 +246,84 @@ const Contact = () => {
             </form>
           </div>
         </div>
+        {/* Global Office  */}
+       <div className="py-12 px-4">
+  <h1 className="text-3xl font-bold text-center text-white">
+    Our Global Office Locations
+  </h1>
+
+  <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+    {/* California */}
+    <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+      <img
+        className="w-full h-72 object-cover"
+        src={California}
+        alt="California"
+      />
+      <div className="p-6 text-center">
+        <h2 className="text-xl font-semibold text-white mb-2">
+          California Office
+        </h2>
+        <p className="text-gray-300 text-sm leading-relaxed">
+          925 N La Brea Ave 4th floor, West Hollywood, CA-90038, United States
+        </p>
+      </div>
+    </div>
+
+    {/* United States */}
+    <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+      <img
+        className="w-full h-72 object-cover"
+        src={US}
+        alt="United States"
+      />
+      <div className="p-6 text-center">
+        <h2 className="text-xl font-semibold text-white mb-2">
+          United States
+        </h2>
+        <p className="text-gray-300 text-sm leading-relaxed">
+          9100 Wilshire Blvd. East Tower Suite 333 Beverly Hills, CA-90212,
+          United States
+        </p>
+      </div>
+    </div>
+
+    {/* UAE */}
+    <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+      <img
+        className="w-full h-72 object-cover"
+        src={UAE}
+        alt="United Arab Emirates"
+      />
+      <div className="p-6 text-center">
+        <h2 className="text-xl font-semibold text-white mb-2">
+          United Arab Emirates
+        </h2>
+        <p className="text-gray-300 text-sm leading-relaxed">
+          4 King Square, Bridgwater, England-TA6 3YF, United Kingdom
+        </p>
+      </div>
+    </div>
+
+    {/* England */}
+    <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+      <img
+        className="w-full h-72 object-cover"
+        src={England}
+        alt="England"
+      />
+      <div className="p-6 text-center">
+        <h2 className="text-xl font-semibold text-white mb-2">
+          England
+        </h2>
+        <p className="text-gray-300 text-sm leading-relaxed">
+          30 Churchill Pl, Canary Wharf, London-E14 5RE, United Kingdom
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
         {/* Additional Info Section */}
         <div

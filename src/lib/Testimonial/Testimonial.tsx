@@ -1,35 +1,3 @@
-// import { TestimonialSlider } from "@/components/TestimonialSlider";
-
-// const Testiimonial = () => {
-//   return (
-//     <div>
-//       {/* Hero Section */}
-//       {/* <section className="py-20 px-4">
-//         <div className="max-w-4xl mx-auto text-center">
-//           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-6">
-//             Testimonial Slider
-//           </h1>
-//           <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-//             Beautiful, responsive testimonial slider with Framer Motion
-//             animations
-//           </p>
-//         </div>
-//       </section> */}
-
-//       {/* Testimonial Section */}
-//       <TestimonialSlider />
-
-//       {/* Footer */}
-//       {/* <section className="py-16 px-4 text-center">
-//         <p className="text-muted-foreground">
-//           Built with React, Tailwind CSS, and Framer Motion
-//         </p>
-//       </section> */}
-//     </div>
-//   );
-// };
-
-// export default Testiimonial;
 import { useState } from "react";
 import { motion } from "framer-motion";
 import img1 from "../../images/01.jpg";

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Store, Package, BarChart3, ShieldCheck } from "lucide-react"; // Example icons
+import { Store, Package, BarChart3, ShieldCheck } from "lucide-react";
 
 const partnershipData = [
   {
@@ -42,13 +42,19 @@ export default function PartnershipSection() {
         {partnershipData.map((item, index) => (
           <motion.div
             key={index}
+            initial={{ 
+              opacity: 0, 
+              x: index % 2 === 0 ? -60 : 60 // even index left, odd index right
+            }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.8, delay: index * 0.2 }}
             whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
             className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center"
             style={{
-              minHeight: "340px", // Increased height
-              marginLeft: "8px", // More left gap
-              marginRight: "8px", // More right gap
+              minHeight: "340px",
+              marginLeft: "8px",
+              marginRight: "8px",
             }}
           >
             {/* Auto Rotate Icon */}
