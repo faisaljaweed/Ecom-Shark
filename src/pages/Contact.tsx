@@ -1,10 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import US from "../images/office/US.jpg";
-import England from  "../images/office/England.webp";
-import California from "../images/office/California.jpg";
-import UAE from "../images/office/UAE.webp";
+import US from "../images/Office/US.jpg";
+import England from  "../images/Office/England.webp";
+import California from "../images/Office/California.jpg";
+import UAE from "../images/Office/UAE.webp";
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
