@@ -15,7 +15,7 @@ import HomeSection from "@/components/HomeSection";
 import RotatingIcons from "@/components/AnimatedAutoCircle";
 import FAQSection from "@/components/HomeImportantQuery";
 import ComparisonSection from "@/components/ComparisionSection";
-import dashboardImg from "../images/dashvoard.jpg"; 
+// import dashboardImg from "../images/dashvoard.jpg"; 
 import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import  img1 from "../images/Slider/1.jpg";
