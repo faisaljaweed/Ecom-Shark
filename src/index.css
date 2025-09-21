@@ -6,6 +6,9 @@
 body {
   background-color: #1e272e;
 }
+html, body {
+  overflow-x: hidden;
+}
 @layer base {
   :root {
     --background: 210 20% 98%;

@@ -3,19 +3,11 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Send } from "lucide-react";
-// import { useForm } from "react-hook-form";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { z } from "zod";
+
 import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 
-// const contactSchema = z.object({
-//   name: z.string().min(2, "Name must be at least 2 characters"),
-//   email: z.string().email("Please enter a valid email address"),
-//   company: z.string().min(2, "Company name must be at least 2 characters"),
-//   revenue: z.string().min(1, "Please select your revenue range"),
-//   message: z.string().min(10, "Message must be at least 10 characters"),
-// });
+
 
 // type ContactFormData = z.infer<typeof contactSchema>;
 
@@ -24,8 +16,6 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "About", path: "/about" },
   { name: "Services", path: "/service" }, // direct link
-  // { name: "Privacy Policy", path: "/privacy" },
-  // { name: "Terms & Conditions", path: "/terms" },
   { name: "Contact", path: "/contact" },
 ];
 
