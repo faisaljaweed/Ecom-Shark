@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AppRoutes from "@/routes";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         <link rel="canonical" href="https://ecomsharks.com" />
       </Helmet>
       <BrowserRouter>
+      <ScrollToTop/>
         <div className="min-h-screen">
           <Navigation />
           <main className="pt-16">

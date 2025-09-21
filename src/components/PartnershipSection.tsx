@@ -28,9 +28,9 @@ export default function PartnershipSection() {
   return (
     <section className="bg-gray-900 py-20 px-6 lg-mx-72">
       <div className="max-w-7xl mx-auto text-center mb-14">
-        <h2 className="text-4xl font-bold text-white">
-          Ecommerce Shark{" "}
-          <span className="text-lime-400">DONE-FOR-YOU PARTNERSHIP</span> WORKS
+        <h2 className="text-6xl font-bold text-white">
+          Ecommerce {" "}
+          <span className="text-lime-400">Shark</span> 
         </h2>
         <p className="mt-4 text-gray-300 max-w-3xl mx-auto">
           Partnering with us means handing over the reins to a team dedicated to

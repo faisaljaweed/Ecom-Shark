@@ -75,12 +75,12 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-3 text-gray-300">
                 <Mail className="h-4 w-4 text-[#a3e635]" />
-                <span className="text-sm">ecomsharks@gmail.com</span>
+                <span className="text-sm">info@ecomsharkz.com</span>
               </div>
               <div className="flex items-center gap-3 text-gray-300">
                 <MapPin className="h-4 w-4 text-[#a3e635]" />
                 <span className="text-sm">
-                  ECOMMSHARKS LLC, MUHAMMAD TAQI NAVEED SOLE MBR APT A-001- B 3549 IOWA AVE RIVERSIDE, CA 92507
+                 3549 Iowa Avenue, Riverside, CA 92507
                 </span>
               </div>
             </div>

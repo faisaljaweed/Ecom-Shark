@@ -1,23 +1,23 @@
 import { motion } from 'framer-motion';
-import logo from "../images/logo.jpg"
+import logo from "../images/Logos.png"
 interface LogoProps {
   className?: string;
   showText?: boolean;
   size?: 'sm' | 'md' | 'lg';
 }
 
-export default function Logo({ className = '', showText = true, size = 'md' }: LogoProps) {
+export default function Logo({ className = '', size = 'md' }: LogoProps) {
   const sizeClasses = {
     sm: 'h-8 w-8',
     md: 'h-10 w-10',
-    lg: 'h-16 w-16'
+    lg: 'h-16 w-44'
   };
 
-  const textSizeClasses = {
-    sm: 'text-lg',
-    md: 'text-xl',
-    lg: 'text-3xl'
-  };
+  // const textSizeClasses = {
+  //   sm: 'text-lg',
+  //   md: 'text-xl',
+  //   lg: 'text-3xl'
+  // };
 
   return (
     <div className={`flex items-center gap-3 ${className}`}>
@@ -29,7 +29,7 @@ export default function Logo({ className = '', showText = true, size = 'md' }: L
          <img 
     src={logo} 
     alt="EcomSharks Logo" 
-    className={`${sizeClasses[size]} rounded-full object-cover`} 
+    className={`${sizeClasses[size]}  `} 
   />
         {/* <svg
           className={`${sizeClasses[size]} text-shark-teal`}
@@ -58,7 +58,7 @@ export default function Logo({ className = '', showText = true, size = 'md' }: L
         </svg> */}
       </motion.div>
       
-      {showText && (
+      {/* {showText && (
         <motion.div
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
@@ -74,7 +74,7 @@ export default function Logo({ className = '', showText = true, size = 'md' }: L
             </span>
           )}
         </motion.div>
-      )}
+      )} */}
     </div>
   );
 }

@@ -16,9 +16,9 @@ import RotatingIcons from "@/components/AnimatedAutoCircle";
 import FAQSection from "@/components/HomeImportantQuery";
 import ComparisonSection from "@/components/ComparisionSection";
 import dashboardImg from "../images/dashvoard.jpg"; 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 export default function Home() {
-  const navigation=useNavigate()
+  // const navigation=useNavigate()
   return (
     <>
       <div className="min-h-screen ">
@@ -91,7 +91,7 @@ export default function Home() {
         </motion.section>
 
         {/* Features Section */}
-        <motion.section
+        {/* <motion.section
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -160,7 +160,7 @@ export default function Home() {
               </Link>
             </div>
           </section>
-        </motion.section>
+        </motion.section> */}
          <motion.section
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}

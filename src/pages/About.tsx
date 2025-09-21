@@ -10,6 +10,7 @@ import {
   Globe,
   Zap,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -52,29 +53,29 @@ const About = () => {
     },
   ];
 
-  const team = [
-    {
-      name: "Alex Thompson",
-      role: "Chief Executive Officer",
-      image:
-        "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bio: "Ecommerce visionary with 12+ years building scalable retail platforms.",
-    },
-    {
-      name: "Maria Santos",
-      role: "Chief Technology Officer",
-      image:
-        "https://images.pexels.com/photos/3211473/pexels-photo-3211473.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bio: "Tech leader specializing in high-performance ecommerce infrastructure and AI.",
-    },
-    {
-      name: "David Kim",
-      role: "Head of Growth",
-      image:
-        "https://images.pexels.com/photos/3211476/pexels-photo-3211476.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bio: "Growth strategist helping brands achieve 10x revenue growth through optimization.",
-    },
-  ];
+  // const team = [
+  //   {
+  //     name: "Alex Thompson",
+  //     role: "Chief Executive Officer",
+  //     image:
+  //       "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400",
+  //     bio: "Ecommerce visionary with 12+ years building scalable retail platforms.",
+  //   },
+  //   {
+  //     name: "Maria Santos",
+  //     role: "Chief Technology Officer",
+  //     image:
+  //       "https://images.pexels.com/photos/3211473/pexels-photo-3211473.jpeg?auto=compress&cs=tinysrgb&w=400",
+  //     bio: "Tech leader specializing in high-performance ecommerce infrastructure and AI.",
+  //   },
+  //   {
+  //     name: "David Kim",
+  //     role: "Head of Growth",
+  //     image:
+  //       "https://images.pexels.com/photos/3211476/pexels-photo-3211476.jpeg?auto=compress&cs=tinysrgb&w=400",
+  //     bio: "Growth strategist helping brands achieve 10x revenue growth through optimization.",
+  //   },
+  // ];
 
   return (
     <div className="min-h-screen bg-gray-900">
@@ -287,7 +288,7 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-16 px-6 bg-gray-800">
+      {/* <section className="py-16 px-6 bg-gray-800">
         <div className="max-w-6xl mx-auto">
           <div
             className={`text-center mb-16 transform transition-all duration-1000 delay-200 ${
@@ -336,7 +337,7 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Why Choose Us */}
       <section className="py-16 px-6 bg-gray-900">
@@ -432,13 +433,15 @@ const About = () => {
               Join thousands of successful merchants who trust Ecommerce Shark
               to power their growth and maximize their profits.
             </p>
-            <button
-              className="group text-green-900 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center"
-              style={{ backgroundColor: "#a3e635" }}
-            >
-              Start Your Success Story
-              <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
+            <Link to="/contact">
+              <button
+                className="group text-green-900 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 inline-flex items-center"
+                style={{ backgroundColor: "#a3e635" }}
+              >
+                Start Your Success Story
+                <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+            </Link>
           </div>
         </div>
       </section>

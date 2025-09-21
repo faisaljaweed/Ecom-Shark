@@ -10,6 +10,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "", 
     subject: "",
     message: "",
   });
@@ -31,6 +32,11 @@ const Contact = () => {
       newErrors.email = "Please enter a valid email address";
     }
 
+    const phoneRegex = /^[0-9]{10,15}$/; // 👈 allow 10-15 digits
+    if (!phoneRegex.test(formData.phone)) {
+    newErrors.phone = "Please enter a valid phone number";
+  }
+
     if (formData.subject.length < 5) {
       newErrors.subject = "Subject must be at least 5 characters";
     }
@@ -43,15 +49,6 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   if (validateForm()) {
-  //     console.log("Contact form submitted:", formData);
-  //     alert("Thank you for your message! We'll get back to you soon.");
-  //     setFormData({ name: "", email: "", subject: "", message: "" });
-  //     setErrors({});
-  //   }
-  // };
 
 const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
@@ -70,7 +67,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       );
 
       alert("Thank you! Your response has been recorded.");
-      setFormData({ name: "", email: "", subject: "", message: "" });
+      setFormData({ name: "", email: "", subject: "", message: "" ,phone: ""});
       setErrors({});
     } catch (error) {
       alert("Error submitting the form. Please try again later.");
@@ -125,18 +122,18 @@ const handleSubmit = async (e: React.FormEvent) => {
               {
                 icon: <Phone className="h-6 w-6" />,
                 title: "Phone",
-                content: "+1 (555) SHARK-01",
+                content: "+1 (909) 7435903",
               },
               {
                 icon: <Mail className="h-6 w-6" />,
                 title: "Email",
-                content: "scale@ecommerceshark.com",
+                content: "info@ecomsharkz.com",
               },
               {
                 icon: <MapPin className="h-6 w-6" />,
                 title: "Address",
                 content:
-                  "123 Commerce Street, Digital District, Tech City 12345",
+                  "3549 Iowa Avenue, Riverside, CA 92507",
               },
             ].map((item, index) => (
               <div
@@ -219,6 +216,28 @@ const handleSubmit = async (e: React.FormEvent) => {
                   <p className="mt-1 text-sm text-red-400">{errors.email}</p>
                 )}
               </div>
+
+              <div>
+               <label
+                 htmlFor="phone"
+                 className="block text-sm font-medium text-white mb-2"
+               >
+                 Contact Number *
+               </label>
+               <input
+                 type="tel"
+                 id="phone"
+                 name="phone"
+                 value={formData.phone}
+                 onChange={handleInputChange}
+                 className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+                 placeholder="e.g. +1 234 567 8901"
+               />
+               {errors.phone && (
+                 <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
+               )}
+             </div>
+
 
               <div>
                 <label

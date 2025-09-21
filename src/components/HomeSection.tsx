@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import leftImage from '../images/sam-club.webp';
 import centerImage from '../images/ebay.webp';
-import rightImage from '../images/logo-ecom-shark.jpeg';
+import rightImage from '../images/Logos.png';
 
 export default function HomeSection() {
   return (
