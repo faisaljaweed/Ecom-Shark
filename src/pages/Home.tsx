@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import {
   TrendingUp,
@@ -16,9 +16,25 @@ import RotatingIcons from "@/components/AnimatedAutoCircle";
 import FAQSection from "@/components/HomeImportantQuery";
 import ComparisonSection from "@/components/ComparisionSection";
 import dashboardImg from "../images/dashvoard.jpg"; 
+import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
+import  img1 from "../images/Slider/1.jpg";
+import  img2 from "../images/Slider/2.jpg";
+import  img3 from "../images/Slider/3.jpg";
+
+const images = [img1, img2, img3];
 export default function Home() {
   // const navigation=useNavigate()
+    const [current, setCurrent] = useState(0);
+
+  // Auto change image after 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <div className="min-h-screen ">
@@ -37,7 +53,7 @@ export default function Home() {
       </motion.section> */}
     
        
-        <motion.section
+        {/* <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -46,49 +62,34 @@ export default function Home() {
             backgroundImage: `url(${dashboardImg})`,
           }}
         >
-          
-          <div className="absolute inset-0  z-0"></div>
+        </motion.section> */}
 
-     
-          <div className="relative z-10 text-center max-w-4xl mx-auto text-white">
-            {/* <motion.h1
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl md:text-6xl font-bold leading-tight mb-4"
-            >
-              Build, Scale & Dominate Ecommerce
-            </motion.h1> */}
 
-            {/* <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg md:text-xl mb-8 text-gray-200"
-            >
-              Full-stack growth for marketplaces and DTC—strategy, execution,
-              and analytics in one place.
-            </motion.p> */}
+        <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="relative container py-20 lg:h-[90vh] md:h-[60vh] sm:h-[40vh] rounded-2xl shadow-lg overflow-hidden"
+    >
+      <AnimatePresence>
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 1 }}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${images[current]})`,
+          }}
+        />
+      </AnimatePresence>
 
-          
-            {/* <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <button className="bg-[#a3e635]  text-green-900 font-semibold px-6 py-3 rounded-lg transition duration-300">
-                Get Started
-              </button>
-              <button
-                onClick={() => navigation("/about")}
-                className="bg-transparent border border-white hover:bg-white hover:text-black px-6 py-3 rounded-lg transition duration-300"
-              >
-                Learn More
-              </button>
-            </motion.div> */}
-          </div>
-        </motion.section>
+      {/* Overlay content example (optional) */}
+      {/* <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+        <h2 className="text-white text-3xl font-bold">Welcome to EcomSharks</h2>
+      </div> */}
+    </motion.section>
 
         {/* Features Section */}
         {/* <motion.section
