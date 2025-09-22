@@ -1,0 +1,23 @@
+.offer-tag {
+  background-color: yellow;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  position: absolute; /* absolute positioning for animation */
+  white-space: nowrap; /* Prevent text from wrapping */
+  animation: moveLeftToRight 10s linear infinite; /* Animation to move left to right */
+}
+
+/* Keyframes to move the tag horizontally */
+@keyframes moveLeftToRight {
+  0% {
+    left: -100%; /* Start from outside on the left */
+  }
+  50% {
+    left: 50%; /* Move to the center */
+  }
+  100% {
+    left: 100%; /* Move outside on the right */
+  }
+}

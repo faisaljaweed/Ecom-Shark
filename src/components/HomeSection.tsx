@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import leftImage from '../images/sam-club.webp';
-import centerImage from '../images/ebay.webp';
-import rightImage from '../images/Logos.png';
+import leftImage from "../images/sam-club.webp";
+import centerImage from "../images/ebay.webp";
+import rightImage from "../images/Logo1.jpg";
 
 export default function HomeSection() {
   return (
@@ -133,7 +133,11 @@ const MyCompanyPage = () => {
         <img src={leftImage} alt="Left" className="max-w-full h-auto" />
       </div>
       <div className="w-full md:w-1/3 flex justify-center rounded-lg">
-        <img src={rightImage} alt="Right" className="max-w-72 h-auto rounded-lg" />
+        <img
+          src={rightImage}
+          alt="Right"
+          className="max-w-72 h-auto rounded-lg"
+        />
       </div>
       <div className="w-full md:w-1/3 flex justify-center">
         <img src={centerImage} alt="Center" className="max-w-full h-auto" />
@@ -141,4 +145,4 @@ const MyCompanyPage = () => {
     </div>
   );
 };
- MyCompanyPage;
+MyCompanyPage;

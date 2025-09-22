@@ -42,7 +42,7 @@ function App() {
         <link rel="canonical" href="https://ecomsharks.com" />
       </Helmet>
       <BrowserRouter>
-      <ScrollToTop/>
+        <ScrollToTop />
         <div className="min-h-screen">
           <Navigation />
           <main className="pt-16">
