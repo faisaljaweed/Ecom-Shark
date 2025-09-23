@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -6,8 +5,7 @@ import { Menu, X, Send } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import Logo from "./Logo";
-
-
+import Loader from "./Loader";
 
 // type ContactFormData = z.infer<typeof contactSchema>;
 
@@ -26,8 +24,9 @@ export default function Navigation() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const location = useLocation();
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const [loading, setLoading] = useState(false);
 
-   const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
@@ -69,10 +68,11 @@ export default function Navigation() {
   // ✅ Submit Handler
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     if (validateForm()) {
       try {
         await fetch(
-          "https://script.google.com/macros/s/AKfycby34aWU072qiFI8iw3QEVPjZa_xrMElWWduWiXnuFzDZ4MURpmpZKgINe5lP00BzIyt/exec",
+          "https://script.google.com/macros/s/AKfycbzcjf3fO8KtmIEEaLBG72bT3BbApg_MvtetcW-STUZSFyzi7P01H6Lft6OjmBHvWWE/exec",
           {
             method: "POST",
             mode: "no-cors",
@@ -84,12 +84,20 @@ export default function Navigation() {
         );
 
         alert("Thank you! Your response has been recorded.");
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
         setErrors({});
         setIsModalOpen(false);
       } catch (error) {
         alert("Error submitting the form. Please try again later.");
         console.error(error);
+        setLoading(false);
       }
     }
   };
@@ -104,7 +112,6 @@ export default function Navigation() {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
-  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -137,13 +144,6 @@ export default function Navigation() {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-
-  // const onSubmit = (data: ContactFormData) => {
-  //   console.log("Growth plan request:", data);
-  //   alert("Thank you! We'll send your free growth plan within 24 hours.");
-  //   reset();
-  //   setIsModalOpen(false);
-  // };
 
   return (
     <>
@@ -184,7 +184,6 @@ export default function Navigation() {
                       />
                     )}
                   </Link>
-
                 </div>
               ))}
             </div>
@@ -246,8 +245,8 @@ export default function Navigation() {
                 >
                   {/* Get a Free Growth Plan */}
                   {/* className="hidden md:flex items-center gap-2 px-6 py-2 bg-[#a3e635] text-green-900 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm" */}
-              {/* > */}
-                Get a Free Growth Plan
+                  {/* > */}
+                  Get a Free Growth Plan
                 </button>
               </motion.div>
             )}
@@ -258,128 +257,158 @@ export default function Navigation() {
       {/* Contact Modal */}
       <AnimatePresence>
         {isModalOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
-          onClick={() => setIsModalOpen(false)}
-        >
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="w-full max-w-2xl bg-[#18202f] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+            onClick={() => setIsModalOpen(false)}
           >
-            <div className="p-8">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl text-white font-bold">Contact Us</h2>
-                <button
-                  onClick={() => setIsModalOpen(false)}
-                  className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
-                  aria-label="Close modal"
-                >
-                  <X className="h-6 w-6" />
-                </button>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="w-full max-w-2xl bg-[#18202f] rounded-2xl shadow-2xl max-h-[90vh] overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-2xl text-white font-bold">Contact Us</h2>
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    aria-label="Close modal"
+                  >
+                    <X className="h-6 w-6" />
+                  </button>
+                </div>
+
+                {/* ✅ Modal Form */}
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm text-white mb-2"
+                    >
+                      Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white"
+                      placeholder="Your name"
+                    />
+                    {errors.name && (
+                      <p className="text-red-400 text-sm">{errors.name}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm text-white mb-2"
+                    >
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white"
+                      placeholder="your@company.com"
+                    />
+                    {errors.email && (
+                      <p className="text-red-400 text-sm">{errors.email}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm text-white mb-2"
+                    >
+                      Phone *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white"
+                      placeholder="e.g. +1 234 567 8901"
+                    />
+                    {errors.phone && (
+                      <p className="text-red-400 text-sm">{errors.phone}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="subject"
+                      className="block text-sm text-white mb-2"
+                    >
+                      Subject *
+                    </label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white"
+                      placeholder="Subject"
+                    />
+                    {errors.subject && (
+                      <p className="text-red-400 text-sm">{errors.subject}</p>
+                    )}
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm text-white mb-2"
+                    >
+                      Message *
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white resize-none"
+                      placeholder="Your message..."
+                    />
+                    {errors.message && (
+                      <p className="text-red-400 text-sm">{errors.message}</p>
+                    )}
+                  </div>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    type="submit"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#a3e635] text-green-900 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 shadow-lg"
+                  >
+                    {loading ? (
+                      <Loader />
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5" /> Send Message
+                      </>
+                    )}
+                  </motion.button>
+                </form>
               </div>
-
-              {/* ✅ Modal Form */}
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm text-white mb-2">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white"
-                    placeholder="Your name"
-                  />
-                  {errors.name && <p className="text-red-400 text-sm">{errors.name}</p>}
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm text-white mb-2">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white"
-                    placeholder="your@company.com"
-                  />
-                  {errors.email && <p className="text-red-400 text-sm">{errors.email}</p>}
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm text-white mb-2">
-                    Phone *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white"
-                    placeholder="e.g. +1 234 567 8901"
-                  />
-                  {errors.phone && <p className="text-red-400 text-sm">{errors.phone}</p>}
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm text-white mb-2">
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white"
-                    placeholder="Subject"
-                  />
-                  {errors.subject && <p className="text-red-400 text-sm">{errors.subject}</p>}
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm text-white mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white resize-none"
-                    placeholder="Your message..."
-                  />
-                  {errors.message && <p className="text-red-400 text-sm">{errors.message}</p>}
-                </div>
-
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-[#a3e635] text-green-900 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 shadow-lg"
-                >
-                  <Send className="h-5 w-5" />
-                  Send Message
-                </motion.button>
-              </form>
-            </div>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
+        )}
       </AnimatePresence>
     </>
   );

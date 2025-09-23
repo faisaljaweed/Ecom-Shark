@@ -11,7 +11,7 @@ import {
   MapPin,
 } from "lucide-react";
 import Logo from "./Logo";
-import Stripe from '../images/Stripe.webp';
+import Stripe from "../images/Stripe.webp";
 import Shopify from "../images/shopify.webp";
 const quickLinks = [
   { name: "Home", path: "/" },
@@ -37,19 +37,19 @@ const legal = [
 ];
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "https://facebook.com/ecomsharks" },
-  { name: "Twitter", icon: Twitter, href: "https://twitter.com/ecomsharks" },
+  { name: "Facebook", icon: Facebook, href: "" },
+  { name: "Twitter", icon: Twitter, href: "" },
   {
     name: "Instagram",
     icon: Instagram,
-    href: "https://instagram.com/ecomsharks",
+    href: "",
   },
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://linkedin.com/company/ecomsharks",
+    href: "",
   },
-  { name: "YouTube", icon: Youtube, href: "https://youtube.com/ecomsharks" },
+  { name: "YouTube", icon: Youtube, href: "" },
 ];
 
 export default function Footer() {
@@ -80,7 +80,7 @@ export default function Footer() {
               <div className="flex items-center gap-3 text-gray-300">
                 <MapPin className="h-4 w-4 text-[#a3e635]" />
                 <span className="text-sm">
-                 3549 Iowa Avenue, Riverside, CA 92507
+                  3549 Iowa Avenue, Riverside, CA 92507
                 </span>
               </div>
             </div>
@@ -144,7 +144,7 @@ export default function Footer() {
                   <motion.a
                     key={social.name}
                     href={social.href}
-                    target="_blank"
+                    // target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -161,10 +161,18 @@ export default function Footer() {
         {/* Stripe Payment */}
         <div className="flex flex-col gap-4 sm:flex-row items-center justify-between pt-6">
           <div className="w-100 sm:w-40 md:w-[40%]">
-            <img alt="Shopify" src={Shopify} className="w-full h-auto object-contain" />
+            <img
+              alt="Shopify"
+              src={Shopify}
+              className="w-full h-auto object-contain"
+            />
           </div>
           <div className="w-100 sm:w-40 md:w-[40%]">
-            <img alt="Stripe" src={Stripe} className="w-full h-auto object-contain" />
+            <img
+              alt="Stripe"
+              src={Stripe}
+              className="w-full h-auto object-contain"
+            />
           </div>
         </div>
 

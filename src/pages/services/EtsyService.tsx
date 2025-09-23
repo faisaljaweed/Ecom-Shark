@@ -1,38 +1,48 @@
 // pages/service/EtsyService.tsx
-import { Link } from 'react-router-dom';
-import { ArrowLeft, Package, BarChart3, Users, CheckCircle } from 'lucide-react';
-import Center_Services_Content from './Center_Content_Services/Center_Services_Content';
-
+import { Link } from "react-router-dom";
+import {
+  ArrowLeft,
+  Package,
+  BarChart3,
+  Users,
+  CheckCircle,
+} from "lucide-react";
+import Center_Services_Content from "./Center_Content_Services/Center_Services_Content";
+import Etsy from "../../images/img/etsy.png";
 export default function EtsyService() {
   const features = [
     {
       icon: Package,
-      title: 'SEO Optimization',
-      description: 'Boost your Etsy rankings with keyword-rich titles, tags, and descriptions.'
+      title: "SEO Optimization",
+      description:
+        "Boost your Etsy rankings with keyword-rich titles, tags, and descriptions.",
     },
     {
       icon: BarChart3,
-      title: 'Sales Insights',
-      description: 'Get deep analytics about customer preferences and sales trends.'
+      title: "Sales Insights",
+      description:
+        "Get deep analytics about customer preferences and sales trends.",
     },
     {
       icon: Users,
-      title: 'Custom Order Handling',
-      description: 'Manage special and custom orders smoothly with automation tools.'
+      title: "Custom Order Handling",
+      description:
+        "Manage special and custom orders smoothly with automation tools.",
     },
     {
       icon: CheckCircle,
-      title: 'Customer Engagement',
-      description: 'Keep buyers engaged with automated responses and personalized offers.'
-    }
+      title: "Customer Engagement",
+      description:
+        "Keep buyers engaged with automated responses and personalized offers.",
+    },
   ];
 
   const benefits = [
-    'Higher visibility on Etsy search',
-    'Automated custom order management',
-    'Improved customer satisfaction',
-    'Boost repeat sales with engagement tools',
-    'Detailed insights for better decision-making'
+    "Higher visibility on Etsy search",
+    "Automated custom order management",
+    "Improved customer satisfaction",
+    "Boost repeat sales with engagement tools",
+    "Detailed insights for better decision-making",
   ];
 
   return (
@@ -50,23 +60,24 @@ export default function EtsyService() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-[#a3e635] to-[#a3e635]">
-              <Package className="h-16 w-16 text-white" />
+            <div className="p-4 rounded-2xl ">
+              <img src={Etsy} alt="Shopify" className="h-24 w-24 text-white" />
             </div>
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white bg-clip-text text-transparent">
-            Etsy Shop <span className='text-[#a3e635]'>Automation</span> 
+            Etsy Shop <span className="text-[#a3e635]">Automation</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Empower your Etsy store with smart automation for SEO, order management, and customer engagement. 
-            Spend less time on repetitive tasks and more on growing your creative brand.
+            Empower your Etsy store with smart automation for SEO, order
+            management, and customer engagement. Spend less time on repetitive
+            tasks and more on growing your creative brand.
           </p>
         </div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={index}
               className="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-[#a3e635] transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10"
             >
@@ -74,17 +85,23 @@ export default function EtsyService() {
                 <div className="p-2 rounded-lg bg-blue-500/20 mr-4">
                   <feature.icon className="h-6 w-6 text-[#a3e635]" />
                 </div>
-                <h3 className="text-xl font-semibold text-white">{feature.title}</h3>
+                <h3 className="text-xl font-semibold text-white">
+                  {feature.title}
+                </h3>
               </div>
-              <p className="text-gray-300 leading-relaxed">{feature.description}</p>
+              <p className="text-gray-300 leading-relaxed">
+                {feature.description}
+              </p>
             </div>
           ))}
         </div>
 
-         <Center_Services_Content/>
+        <Center_Services_Content />
         {/* Benefits Section */}
         <div className="bg-gray-800 rounded-2xl p-8 mb-12 border border-gray-700">
-          <h2 className="text-3xl font-bold text-center mb-8 text-white">Why Choose Our Etsy Automation?</h2>
+          <h2 className="text-3xl font-bold text-center mb-8 text-white">
+            Why Choose Our Etsy Automation?
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {benefits.map((benefit, index) => (
               <div key={index} className="flex items-center text-gray-300">
@@ -97,9 +114,12 @@ export default function EtsyService() {
 
         {/* CTA Section */}
         <div className="text-center">
-          <h2 className="text-3xl font-bold mb-6 text-white">Ready to Grow Your Etsy Shop?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-white">
+            Ready to Grow Your Etsy Shop?
+          </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-            Automate your operations, improve visibility, and keep customers coming back.
+            Automate your operations, improve visibility, and keep customers
+            coming back.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-[#a3e635] text-green-900 px-8 py-4 rounded-lg font-semibold hover:bg-lime-300 transition-all duration-300 hover:shadow-lg hover:scale-105">

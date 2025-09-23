@@ -1,24 +1,22 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  FaFacebook,
-  FaInstagram,
-  FaLinkedin,
-} from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-import amazon from "../images/img/amazon.png"; 
+import amazon from "../images/img/amazon.png";
 import shopify from "../images/img/Shopify.png";
 import tiktok from "../images/img/tiktok.png";
 import walmart from "../images/img/Walmart.png";
-import ebay from"../images/img/ebay.png";
-import etsy from "../images/img/etsy.png"
+import ebay from "../images/img/ebay.png";
+import etsy from "../images/img/etsy.png";
 
 const services = [
   {
     id: 1,
-    icon:  <img src={amazon} alt="Amazon" className="w-12 h-12 object-contain" />,
+    icon: (
+      <img src={amazon} alt="Amazon" className="w-12 h-12 object-contain" />
+    ),
     title: "Amazon Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
@@ -27,7 +25,9 @@ const services = [
   },
   {
     id: 2,
-    icon:  <img src={shopify} alt="Amazon" className="w-12 h-12 object-contain" />,
+    icon: (
+      <img src={shopify} alt="Amazon" className="w-12 h-12 object-contain" />
+    ),
     title: "Shopify Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
@@ -36,7 +36,9 @@ const services = [
   },
   {
     id: 3,
-    icon:  <img src={tiktok} alt="Amazon" className="w-12 h-12 object-contain" />,
+    icon: (
+      <img src={tiktok} alt="Amazon" className="w-12 h-12 object-contain" />
+    ),
     title: "TikTok Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
@@ -45,7 +47,9 @@ const services = [
   },
   {
     id: 4,
-    icon:  <img src={walmart} alt="Amazon" className="w-12 h-12 object-contain" />,
+    icon: (
+      <img src={walmart} alt="Amazon" className="w-12 h-12 object-contain" />
+    ),
     title: "Walmart Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
@@ -54,7 +58,7 @@ const services = [
   },
   {
     id: 5,
-    icon:  <img src={ebay} alt="Amazon" className="w-12 h-12 object-contain" />,
+    icon: <img src={ebay} alt="Amazon" className="w-12 h-12 object-contain" />,
     title: "eBay Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
@@ -63,7 +67,7 @@ const services = [
   },
   {
     id: 6,
-    icon:  <img src={etsy} alt="Amazon" className="w-12 h-12 object-contain" />,
+    icon: <img src={etsy} alt="Amazon" className="w-12 h-12 object-contain" />,
     title: "Etsy Automation",
     link: "#",
     desc: "Full store creation, product sourcing, listing optimization, and account management.",
@@ -131,13 +135,11 @@ export default function ServicesSection() {
           Schedule a Call →
         </button>
       </div>
-
-      {/* RIGHT SIDE SLIDER */}
       <div className="md:w-2/3 relative">
         {/* Prev Button */}
         <button
           onClick={prevSlide}
-          className="absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200 z-10"
+          className="absolute -left-6 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200 z-10 hidden md:block"
         >
           <ChevronLeft size={20} />
         </button>
@@ -145,7 +147,7 @@ export default function ServicesSection() {
         {/* Cards Container */}
         <div
           ref={sliderRef}
-          className="overflow-hidden flex gap-4 pb-4 scrollbar-hide"
+          className="flex gap-4 pb-4 scrollbar-hide overflow-x-auto md:overflow-hidden"
         >
           {services.map((service) => (
             <motion.div
@@ -167,7 +169,7 @@ export default function ServicesSection() {
         {/* Next Button */}
         <button
           onClick={nextSlide}
-          className="absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200 z-10"
+          className="absolute -right-6 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md hover:bg-gray-200 z-10 hidden md:block"
         >
           <ChevronRight size={20} />
         </button>

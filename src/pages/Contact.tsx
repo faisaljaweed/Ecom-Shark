@@ -1,20 +1,22 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import US from "../images/Office/US.jpg";
-import England from  "../images/Office/England.webp";
-import California from "../images/Office/California.jpg";
-import UAE from "../images/Office/UAE.webp";
+// import US from "../images/Office/US.jpg";
+// import England from "../images/Office/England.webp";
+// import California from "../images/Office/California.jpg";
+// import UAE from "../images/Office/UAE.webp";
+import Loader from "@/components/Loader";
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "", 
+    phone: "",
     subject: "",
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -34,8 +36,8 @@ const Contact = () => {
 
     const phoneRegex = /^[0-9]{10,15}$/; // 👈 allow 10-15 digits
     if (!phoneRegex.test(formData.phone)) {
-    newErrors.phone = "Please enter a valid phone number";
-  }
+      newErrors.phone = "Please enter a valid phone number";
+    }
 
     if (formData.subject.length < 5) {
       newErrors.subject = "Subject must be at least 5 characters";
@@ -49,34 +51,46 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (validateForm()) {
-    try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycby34aWU072qiFI8iw3QEVPjZa_xrMElWWduWiXnuFzDZ4MURpmpZKgINe5lP00BzIyt/exec",
-        {
-          method: "POST",
-          mode: "no-cors", // 👈 yaha add karo
-          body: JSON.stringify(formData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+    if (validateForm()) {
+      try {
+        await fetch(
+          "https://script.google.com/macros/s/AKfycbzcjf3fO8KtmIEEaLBG72bT3BbApg_MvtetcW-STUZSFyzi7P01H6Lft6OjmBHvWWE/exec",
+          {
+            method: "POST",
+            mode: "no-cors",
+            body: JSON.stringify(formData),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
 
-      alert("Thank you! Your response has been recorded.");
-      setFormData({ name: "", email: "", subject: "", message: "" ,phone: ""});
-      setErrors({});
-    } catch (error) {
-      alert("Error submitting the form. Please try again later.");
-      console.error(error);
+        alert("Thank you! Your response has been recorded.");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+        setErrors({});
+      } catch (error) {
+        alert("Error submitting the form. Please try again later.");
+        console.error(error);
+      } finally {
+        // ✅ loader hamesha band hoga
+        setLoading(false);
+      }
+    } else {
+      // ❌ agar validation fail ho jaye to loader off karna hoga
+      setLoading(false);
     }
-  }
-};
+  };
 
-  
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -132,8 +146,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               {
                 icon: <MapPin className="h-6 w-6" />,
                 title: "Address",
-                content:
-                  "3549 Iowa Avenue, Riverside, CA 92507",
+                content: "3549 Iowa Avenue, Riverside, CA 92507",
               },
             ].map((item, index) => (
               <div
@@ -218,26 +231,25 @@ const handleSubmit = async (e: React.FormEvent) => {
               </div>
 
               <div>
-               <label
-                 htmlFor="phone"
-                 className="block text-sm font-medium text-white mb-2"
-               >
-                 Contact Number *
-               </label>
-               <input
-                 type="tel"
-                 id="phone"
-                 name="phone"
-                 value={formData.phone}
-                 onChange={handleInputChange}
-                 className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
-                 placeholder="e.g. +1 234 567 8901"
-               />
-               {errors.phone && (
-                 <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
-               )}
-             </div>
-
+                <label
+                  htmlFor="phone"
+                  className="block text-sm font-medium text-white mb-2"
+                >
+                  Contact Number *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-600 bg-gray-700/50 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-lime-400 focus:border-transparent transition-all"
+                  placeholder="e.g. +1 234 567 8901"
+                />
+                {errors.phone && (
+                  <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
+                )}
+              </div>
 
               <div>
                 <label
@@ -283,93 +295,104 @@ const handleSubmit = async (e: React.FormEvent) => {
 
               <button
                 type="submit"
-                className="group w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 text-green-900"
-                style={{ backgroundColor: "#a3e635" }}
+                disabled={loading}
+                className={`group w-full flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-semibold text-lg shadow-lg transition-all duration-300 transform ${
+                  loading
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "hover:shadow-xl hover:-translate-y-1 text-green-900"
+                }`}
+                style={{ backgroundColor: loading ? "#d1d5db" : "#a3e635" }}
               >
-                <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-                Let's Scale Together
+                {loading ? (
+                  <Loader />
+                ) : (
+                  <>
+                    <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+                    Let's Scale Together
+                  </>
+                )}
               </button>
             </form>
           </div>
         </div>
         {/* Global Office  */}
-       <div className="py-12 px-4">
-  <h1 className="text-3xl font-bold text-center text-white">
-    Our Global Office Locations
-  </h1>
+        {/* <div className="py-12 px-4"> */}
+          {/* <h1 className="text-3xl font-bold text-center text-white">
+            Our Global Office Locations
+          </h1> */}
 
-  <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
-    {/* California */}
-    <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-      <img
-        className="w-full h-72 object-cover"
-        src={California}
-        alt="California"
-      />
-      <div className="p-6 text-center">
-        <h2 className="text-xl font-semibold text-white mb-2">
-          California Office
-        </h2>
-        <p className="text-gray-300 text-sm leading-relaxed">
-          925 N La Brea Ave 4th floor, West Hollywood, CA-90038, United States
-        </p>
-      </div>
-    </div>
+          {/* <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10"> */}
+            {/* California */}
+            {/* <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+              <img
+                className="w-full h-72 object-cover"
+                src={California}
+                alt="California"
+              />
+              <div className="p-6 text-center">
+                <h2 className="text-xl font-semibold text-white mb-2">
+                  California Office
+                </h2>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  925 N La Brea Ave 4th floor, West Hollywood, CA-90038, United
+                  States
+                </p>
+              </div>
+            </div> */}
 
-    {/* United States */}
-    <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-      <img
-        className="w-full h-72 object-cover"
-        src={US}
-        alt="United States"
-      />
-      <div className="p-6 text-center">
-        <h2 className="text-xl font-semibold text-white mb-2">
-          United States
-        </h2>
-        <p className="text-gray-300 text-sm leading-relaxed">
-          9100 Wilshire Blvd. East Tower Suite 333 Beverly Hills, CA-90212,
-          United States
-        </p>
-      </div>
-    </div>
+            {/* United States */}
+            {/* <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+              <img
+                className="w-full h-72 object-cover"
+                src={US}
+                alt="United States"
+              />
+              <div className="p-6 text-center">
+                <h2 className="text-xl font-semibold text-white mb-2">
+                  United States
+                </h2>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  9100 Wilshire Blvd. East Tower Suite 333 Beverly Hills,
+                  CA-90212, United States
+                </p>
+              </div>
+            </div> */}
 
-    {/* UAE */}
-    <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-      <img
-        className="w-full h-72 object-cover"
-        src={UAE}
-        alt="United Arab Emirates"
-      />
-      <div className="p-6 text-center">
-        <h2 className="text-xl font-semibold text-white mb-2">
-          United Arab Emirates
-        </h2>
-        <p className="text-gray-300 text-sm leading-relaxed">
-          4 King Square, Bridgwater, England-TA6 3YF, United Kingdom
-        </p>
-      </div>
-    </div>
+            {/* UAE */}
+            {/* <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+              <img
+                className="w-full h-72 object-cover"
+                src={UAE}
+                alt="United Arab Emirates"
+              />
+              <div className="p-6 text-center">
+                <h2 className="text-xl font-semibold text-white mb-2">
+                  United Arab Emirates
+                </h2>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  4 King Square, Bridgwater, England-TA6 3YF, United Kingdom
+                </p>
+              </div>
+            </div> */}
 
-    {/* England */}
-    <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-      <img
-        className="w-full h-72 object-cover"
-        src={England}
-        alt="England"
-      />
-      <div className="p-6 text-center">
-        <h2 className="text-xl font-semibold text-white mb-2">
-          England
-        </h2>
-        <p className="text-gray-300 text-sm leading-relaxed">
-          30 Churchill Pl, Canary Wharf, London-E14 5RE, United Kingdom
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
+            {/* England */}
+            {/* <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+              <img
+                className="w-full h-72 object-cover"
+                src={England}
+                alt="England"
+              />
+              <div className="p-6 text-center">
+                <h2 className="text-xl font-semibold text-white mb-2">
+                  England
+                </h2>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  30 Churchill Pl, Canary Wharf, London-E14 5RE, United Kingdom
+                </p>
+              </div>
+            </div> */}
+          {/* </div> */}
+        {/* </div> */}
 
         {/* Additional Info Section */}
         <div

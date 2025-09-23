@@ -53,30 +53,6 @@ const About = () => {
     },
   ];
 
-  // const team = [
-  //   {
-  //     name: "Alex Thompson",
-  //     role: "Chief Executive Officer",
-  //     image:
-  //       "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400",
-  //     bio: "Ecommerce visionary with 12+ years building scalable retail platforms.",
-  //   },
-  //   {
-  //     name: "Maria Santos",
-  //     role: "Chief Technology Officer",
-  //     image:
-  //       "https://images.pexels.com/photos/3211473/pexels-photo-3211473.jpeg?auto=compress&cs=tinysrgb&w=400",
-  //     bio: "Tech leader specializing in high-performance ecommerce infrastructure and AI.",
-  //   },
-  //   {
-  //     name: "David Kim",
-  //     role: "Head of Growth",
-  //     image:
-  //       "https://images.pexels.com/photos/3211476/pexels-photo-3211476.jpeg?auto=compress&cs=tinysrgb&w=400",
-  //     bio: "Growth strategist helping brands achieve 10x revenue growth through optimization.",
-  //   },
-  // ];
-
   return (
     <div className="min-h-screen bg-gray-900">
       {/* Hero Section */}
@@ -286,58 +262,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* Team Section */}
-      {/* <section className="py-16 px-6 bg-gray-800">
-        <div className="max-w-6xl mx-auto">
-          <div
-            className={`text-center mb-16 transform transition-all duration-1000 delay-200 ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-12 opacity-0"
-            }`}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              The Shark Team
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Meet the ecommerce experts who are revolutionizing online retail
-              and driving merchant success worldwide.
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-8">
-            {team.map((member, index) => (
-              <div
-                key={index}
-                className={`group bg-gray-700 border border-gray-600 rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-2 transform ${
-                  isVisible
-                    ? "translate-y-0 opacity-100"
-                    : "translate-y-12 opacity-0"
-                }`}
-                style={{ transitionDelay: `${index * 150 + 1000}ms` }}
-              >
-                <div className="aspect-w-4 aspect-h-5 overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-8">
-                  <h4 className="text-2xl font-bold text-white mb-2">
-                    {member.name}
-                  </h4>
-                  <p className="text-lime-400 font-semibold mb-4">
-                    {member.role}
-                  </p>
-                  <p className="text-gray-300 leading-relaxed">{member.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       {/* Why Choose Us */}
       <section className="py-16 px-6 bg-gray-900">

@@ -1,26 +1,24 @@
 import { useState, useEffect } from "react";
-import "./OfferTaf.css"; // CSS file import karen
+import "./OfferTag.css"; // CSS file import
 
 const OfferTag = () => {
   const [showOffer, setShowOffer] = useState(false);
 
-  // Offer ko kuch time baad dikhane ke liye useEffect
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowOffer(true);
-    }, 1000); // 1 second ke baad offer tag dikhaye
-
-    // Cleanup function to clear timer
+    }, 1000); // 1 second delay
     return () => clearTimeout(timer);
   }, []);
 
+  if (!showOffer) return null;
+
   return (
-    <div>
-      {showOffer && (
-        <div className="offer-tag">
-          <span>Limited Time Offer: 50% Off!</span>
-        </div>
-      )}
+    <div className="relative w-full overflow-hidden bg-yellow-400 h-12 flex items-center">
+      {/* Scrolling text */}
+      <div className="whitespace-nowrap font-bold px-6 text-sm sm:text-base md:text-lg lg:text-xl animate-marquee">
+        🎉 Limited Time Offer: <span className="text-red-600">20% Off!</span> 🎉
+      </div>
     </div>
   );
 };

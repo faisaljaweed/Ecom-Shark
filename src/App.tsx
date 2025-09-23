@@ -43,11 +43,15 @@ function App() {
       </Helmet>
       <BrowserRouter>
         <ScrollToTop />
-        <div className="min-h-screen">
+        <div className="min-h-screen relative">
           <Navigation />
+
+          {/* Navigation ke neeche offer strip */}
+
           <main className="pt-16">
             <AppRoutes />
           </main>
+
           <Footer />
         </div>
       </BrowserRouter>
