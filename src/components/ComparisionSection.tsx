@@ -35,7 +35,7 @@ export default function ComparisonSection() {
           className="p-6 rounded-lg shadow"
         >
           <h3 className="text-lg font-bold mb-4 text-[#a3e635]">
-            Growth With The Rocket Retail
+            Growth With The Ecom Sharks
           </h3>
           <ul className="space-y-4">
             {growthPoints.map((point, i) => (

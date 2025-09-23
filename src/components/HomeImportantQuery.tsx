@@ -2,22 +2,22 @@ import { useState } from "react";
 
 const faqData = [
   {
-    question: "Why should I choose The Rocket Retail for my Amazon business?",
+    question: "Why should I choose The Ecom Sharks for my Amazon business?",
     answer:
-      "The Rocket Retail is one of the top full-service agencies in this industry. It boasts a roadmap from success to sustainable growth for each brand. Our specialized solutions are made to measure results through creative content and advertising.",
+      "The Ecom Sharks is one of the top full-service agencies in this industry. It boasts a roadmap from success to sustainable growth for each brand. Our specialized solutions are made to measure results through creative content and advertising.",
   },
   {
-    question: "How does The Rocket Retail optimize product listings?",
+    question: "How does The Ecom Sharks optimize product listings?",
     answer:
       "We use advanced SEO, market research, and optimization techniques to make your listings more visible and appealing to customers.",
   },
   {
-    question: "Can The Rocket Retail help with global expansion?",
+    question: "Can The Ecom Sharksl help with global expansion?",
     answer:
       "Yes, we have expertise in expanding your business to multiple global marketplaces.",
   },
   {
-    question: "What industries does The Rocket Retail cater to?",
+    question: "What industries does The Ecom Sharks cater to?",
     answer:
       "We work across multiple industries, including retail, fashion, electronics, and more.",
   },

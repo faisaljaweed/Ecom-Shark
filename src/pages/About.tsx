@@ -68,7 +68,7 @@ const About = () => {
             <div className="flex items-center justify-center mb-8">
               <ShoppingCart className="w-16 h-16 text-lime-400 mr-4" />
               <h1 className="text-5xl md:text-7xl font-bold text-white">
-                Ecommerce <span className="text-lime-400">Shark</span>
+                Ecommerce <span className="text-lime-400">Sharks</span>
               </h1>
             </div>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -274,7 +274,7 @@ const About = () => {
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Why Ecommerce Shark?
+              Why Ecommerce Sharks?
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               We don't just build ecommerce platforms - we create growth engines

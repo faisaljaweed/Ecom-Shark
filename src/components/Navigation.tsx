@@ -151,7 +151,7 @@ export default function Navigation() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled
-            ? "bg-transparent backdrop-blur-md border-b border-border/50 shadow-lg"
+            ? "bg-[#1b272e] backdrop-blur-md border-b border-border/50 shadow-lg"
             : "bg-[#1e272e] backdrop-blur-sm"
         )}
       >
@@ -170,7 +170,7 @@ export default function Navigation() {
                   <Link
                     to={item.path}
                     className={cn(
-                      "relative px-3 py-2 text-sm font-medium transition-colors hover:text-[#a3e635]",
+                      "relative px-3 py-2 text-lg font-medium transition-colors hover:text-[#a3e635]",
                       location.pathname === item.path
                         ? "text-[#a3e635]"
                         : "text-white"

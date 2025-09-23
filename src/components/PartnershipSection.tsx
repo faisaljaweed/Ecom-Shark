@@ -30,7 +30,7 @@ export default function PartnershipSection() {
       <div className="max-w-7xl mx-auto text-center mb-14">
         <h2 className="text-3xl  md:text-6xl font-bold text-white">
           Ecommerce {" "}
-          <span className="text-lime-400">Shark</span> 
+          <span className="text-lime-400">Sharks</span> 
         </h2>
         <p className="mt-4 text-gray-300 max-w-3xl mx-auto">
           Partnering with us means handing over the reins to a team dedicated to

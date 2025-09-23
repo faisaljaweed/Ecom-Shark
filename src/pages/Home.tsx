@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import {  motion } from "framer-motion";
 
 import { TrendingUp, Users, Award, ArrowRight } from "lucide-react";
 
@@ -21,7 +21,7 @@ import OfferTag from "@/components/OfferTag";
 const images = [img1, img2, img3];
 export default function Home() {
   // const navigation=useNavigate()
-  const [current, setCurrent] = useState(0);
+  const [, setCurrent] = useState(0);
 
   // Auto change image after 3 seconds
   useEffect(() => {
@@ -30,12 +30,44 @@ export default function Home() {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-
+     const [currentIndex, setCurrentIndex] = useState(0);
+     
+     
+     useEffect(() => {
+     const interval = setInterval(() => {
+     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+     }, 3000); // 3 seconds interval
+     
+     
+     return () => clearInterval(interval);
+     }, []);
   return (
     <>
       <div className="min-h-screen ">
         <OfferTag />
-        <motion.section
+
+<div className="relative w-full overflow-hidden">
+  <div
+    className="flex transition-transform duration-700"
+    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+  >
+    {images.map((img, index) => (
+      <div
+        key={index}
+        className="w-full flex-shrink-0 h-[200px] sm:h-[300px] md:h-[400px] lg:h-[600px] xl:h-screen"
+      >
+        <img
+  src={img}
+  alt={`Slide ${index}`}
+  className="w-full h-full object-contain sm:object-cover"
+/>
+
+      </div>
+    ))}
+  </div>
+</div>
+
+        {/* <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -47,14 +79,15 @@ export default function Home() {
               initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 4 }}
               className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: `url(${images[current]})`,
               }}
             />
           </AnimatePresence>
-        </motion.section>
+        </motion.section> */}
+        
 
         <motion.section
           initial={{ opacity: 0, y: 40 }}
