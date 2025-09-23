@@ -5,8 +5,20 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import AppRoutes from "@/routes";
 import ScrollToTop from "./components/ScrollToTop";
+import { useEffect, useState } from "react";
+import Modal from "./components/Modal";
 
 function App() {
+   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    // 5 seconds wait then open modal
+    const timer = setTimeout(() => {
+      setIsModalOpen(true);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <HelmetProvider>
       <Helmet>
@@ -54,6 +66,28 @@ function App() {
 
           <Footer />
         </div>
+        <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <div className="text-center">
+            <h2 className="text-2xl text-white font-bold mb-4 text-blue-600">
+              🎉 Welcome <span className="text-lime-700"> to Ecom Sharks!</span>
+            </h2>
+            <p className=" mb-4 text-white">
+              Enjoy browsing our products and services.  
+              Don’t miss our latest offers!
+            </p>
+            {/* <img
+              src="https://source.unsplash.com/400x200/?technology,website"
+              alt="Welcome Banner"
+              className="rounded-lg mb-4"
+            /> */}
+            <button
+              className="bg-lime-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+              onClick={() => setIsModalOpen(false)}
+            >
+              Let’s Go 🚀
+            </button>
+          </div>
+        </Modal>
       </BrowserRouter>
     </HelmetProvider>
   );
