@@ -22,7 +22,7 @@ const faqData = [
       "We work across multiple industries, including retail, fashion, electronics, and more.",
   },
   {
-    question: "How quickly can I see results with The Rocket Retail?",
+    question: "How quickly can I see results with The Ecom Sharks?",
     answer:
       "Depending on your business type, you can start seeing improvements within weeks.",
   },

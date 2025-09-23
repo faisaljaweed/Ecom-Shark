@@ -100,7 +100,7 @@ const About = () => {
               </h2>
               <div className="space-y-6 text-gray-300 leading-relaxed">
                 <p className="text-lg">
-                  Founded in 2016, Ecommerce Shark emerged from a simple
+                  Founded in 2016, Ecommerce SharkS emerged from a simple
                   observation: most online retailers were struggling with
                   outdated platforms and inefficient processes that limited
                   their growth potential.
