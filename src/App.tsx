@@ -6,10 +6,12 @@ import Footer from "@/components/Footer";
 import AppRoutes from "@/routes";
 import ScrollToTop from "./components/ScrollToTop";
 import Modal from "./components/Modal";
+import MetaPixel from "./components/MetaPixel";
 
 function App() {
   return (
     <HelmetProvider>
+      <MetaPixel />
       <Helmet>
         <title>EcomSharks - We Scale Ecommerce Brands with Precision</title>
         <meta
