@@ -1,11 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-// import US from "../images/Office/US.jpg";
-// import England from "../images/Office/England.webp";
-// import California from "../images/Office/California.jpg";
-// import UAE from "../images/Office/UAE.webp";
 import Loader from "@/components/Loader";
+import { sendFacebookEvent } from "../utils/fbConversion";
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -69,6 +66,7 @@ const Contact = () => {
           }
         );
 
+        await sendFacebookEvent("Lead", formData.email);
         alert("Thank you! Your response has been recorded.");
         setFormData({
           name: "",
@@ -315,84 +313,6 @@ const Contact = () => {
             </form>
           </div>
         </div>
-        {/* Global Office  */}
-        {/* <div className="py-12 px-4"> */}
-          {/* <h1 className="text-3xl font-bold text-center text-white">
-            Our Global Office Locations
-          </h1> */}
-
-          {/* <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10"> */}
-            {/* California */}
-            {/* <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-              <img
-                className="w-full h-72 object-cover"
-                src={California}
-                alt="California"
-              />
-              <div className="p-6 text-center">
-                <h2 className="text-xl font-semibold text-white mb-2">
-                  California Office
-                </h2>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  925 N La Brea Ave 4th floor, West Hollywood, CA-90038, United
-                  States
-                </p>
-              </div>
-            </div> */}
-
-            {/* United States */}
-            {/* <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-              <img
-                className="w-full h-72 object-cover"
-                src={US}
-                alt="United States"
-              />
-              <div className="p-6 text-center">
-                <h2 className="text-xl font-semibold text-white mb-2">
-                  United States
-                </h2>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  9100 Wilshire Blvd. East Tower Suite 333 Beverly Hills,
-                  CA-90212, United States
-                </p>
-              </div>
-            </div> */}
-
-            {/* UAE */}
-            {/* <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-              <img
-                className="w-full h-72 object-cover"
-                src={UAE}
-                alt="United Arab Emirates"
-              />
-              <div className="p-6 text-center">
-                <h2 className="text-xl font-semibold text-white mb-2">
-                  United Arab Emirates
-                </h2>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  4 King Square, Bridgwater, England-TA6 3YF, United Kingdom
-                </p>
-              </div>
-            </div> */}
-
-            {/* England */}
-            {/* <div className="bg-gray-800/80 backdrop-blur-sm border border-gray-700 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
-              <img
-                className="w-full h-72 object-cover"
-                src={England}
-                alt="England"
-              />
-              <div className="p-6 text-center">
-                <h2 className="text-xl font-semibold text-white mb-2">
-                  England
-                </h2>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  30 Churchill Pl, Canary Wharf, London-E14 5RE, United Kingdom
-                </p>
-              </div>
-            </div> */}
-          {/* </div> */}
-        {/* </div> */}
 
         {/* Additional Info Section */}
         <div

@@ -6,6 +6,7 @@ import { Menu, X, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Logo from "./Logo";
 import Loader from "./Loader";
+import { sendFacebookEvent } from "@/utils/fbConversion";
 
 // type ContactFormData = z.infer<typeof contactSchema>;
 
@@ -83,6 +84,7 @@ export default function Navigation() {
           }
         );
 
+        await sendFacebookEvent("Lead", formData.email);
         alert("Thank you! Your response has been recorded.");
 
         setFormData({
